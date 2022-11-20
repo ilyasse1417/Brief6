@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <title>Inscription 2022-2023</title>
+</head>
+<body>
+    <div id="container">
+        <form action="/">
+            <h1>Inscrivez-vous</h1>
+            <div class="input">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="lastName">Prénom</label>
+                <input id="lastName" name="lastName" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="phone">Téléphone</label>
+                <input id="phone" name="phone" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="gender">Genre</label>
+                <select id="Genre">
+                    <option value="Genre"> -- Choisir -- 
+                    </option>
+                    <option value="Masculin"> Masculin 
+                    </option>                    <option value="Féminin"> Féminin
+                    </option>
+                </select>
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="group">Groupe</label>
+                <select id="Groupe">
+                    <option value="Groupe"> -- Choisir -- 
+                    </option>
+                    <option value="DW101"> DW101
+                    <option value="DW102"> DW102
+                    <option value="DW103"> DW103
+                    <option value="DW104"> DW104
+                    <option value="DW105"> DW105
+                </select>
+                <div class="error"></div>
+            </div>
+            <div class="input">
+                <label for="club">Clubs</label>
+                <input type="checkbox">Informatique
+                <input type="checkbox">Robotique
+                <input type="checkbox">Jeu d'échecs
+                <input type="checkbox">Musique
+                <input type="checkbox">Foot
+                <input type="checkbox">Théatre
+                <div class="error"></div>
+            </div>
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+</body>
+</html>
