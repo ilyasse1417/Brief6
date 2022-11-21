@@ -10,11 +10,11 @@ const emailError = document.getElementById('emailError')
 const telephoneError = document.getElementById('telephoneError')
 const clubsError = document.getElementById('clubsError')
 
-var nomValidation = true
-var prenomValidation = true
-var emailValidation = true
-var telephoneValidation = true
-var clubValidation = true
+var nomValidation 
+var prenomValidation 
+var emailValidation 
+var telephoneValidation 
+var clubValidation 
 // Nom
 nom.addEventListener('blur', function(e){
     var nomRegEx = /^[a-zA-Z]{2,30}$/
@@ -22,10 +22,11 @@ nom.addEventListener('blur', function(e){
     if (nomRegEx.test(Nom) === true){
     nomError.style.display = 'none'
     nom.style.border = '1px solid green'
-    nomValidation = false}
+    nomValidation = true}
     else if(Nom === ''){
         nomError.style.display = 'none'
         nom.style.border = '1px solid #f0f0f0'
+        nomValidation = false
     }
     else{
     nomError.style.display = 'block'
@@ -34,14 +35,15 @@ nom.addEventListener('blur', function(e){
 // Prenom
 prenom.addEventListener('blur', function(e){
     var prenomRegEx = /^[a-zA-Z]{2,30}$/
-    const prenom1 = e.target.value
-    if (prenomRegEx.test(prenom1) === true){
+    const Prenom = e.target.value
+    if (prenomRegEx.test(Prenom) === true){
         prenomError.style.display = 'none'
         prenom.style.border = '1px solid green'
-        prenomValidation = false}
-    else if(prenom1 === ''){
+        prenomValidation = true}
+    else if(Prenom === ''){
             prenomError.style.display = 'none'
             prenom.style.border = '1px solid #f0f0f0'
+            prenomValidation = false
         }
     else{
         prenomError.style.display = 'block'
@@ -50,14 +52,15 @@ prenom.addEventListener('blur', function(e){
 // Email
 email.addEventListener('blur', function(e){
     var emailRegEx = /([a-z])+\.([a-z])+@ofppt\.ma/
-    const email1 = e.target.value
-    if (emailRegEx.test(email1) === true){
+    const Email = e.target.value
+    if (emailRegEx.test(Email) === true){
     emailError.style.display = 'none'
     email.style.border = '1px solid green'
-    emailValidation = false}
-    else if(email1 === ''){
+    emailValidation = true}
+    else if(Email === ''){
         emailError.style.display = 'none'
         email.style.border = '1px solid #f0f0f0'
+        emailValidation = false
     }
     else{
     emailError.style.display = 'block'
@@ -66,17 +69,19 @@ email.addEventListener('blur', function(e){
 // Telephone
 telephone.addEventListener('blur', function(e){
     var telephoneRegEx = /^(05|06|07)([0-9]{8})$/
-    const telephone1 = e.target.value
-    if (telephoneRegEx.test(telephone1) === true){
+    const Telephone = e.target.value
+    if (telephoneRegEx.test(Telephone) === true){
     telephoneError.style.display = 'none'
     telephone.style.border = '1px solid green'
-    telephoneValidation = false}
-    else if (telephone1 === ''){
+    telephoneValidation = true}
+    else if (Telephone === ''){
     telephoneError.style.display = 'none'
-    telephone.style.border = '1px solid #f0f0f0'}
+    telephone.style.border = '1px solid #f0f0f0'
+    telephoneValidation = false}
     else{
     telephoneError.style.display = 'block'
-    telephone.style.border = '1px solid red'}
+    telephone.style.border = '1px solid red'
+    telephoneValidation = false}
 })
 // Clubs
 function isChecked(){
@@ -88,12 +93,12 @@ function isChecked(){
     }
     if(count>=1 & count<=3){
     clubsError.style.display = 'none'
-    clubValidation = false}
-    else
+    clubValidation = true}
+    else{
     clubsError.style.display = 'block'
+    clubValidation = false
+    }
 }
-
-
 // Boutton
 button.addEventListener('click', function(){
     const nom1 = document.getElementById('nom').value
@@ -129,9 +134,9 @@ button.addEventListener('click', function(){
     else
     clubsError.style.display = 'block'
 })
+// S'inscrire
 function validation(){
-    if(!nomValidation && !prenomValidation && !emailValidation && !telephoneValidation && !clubValidation){
-        console.log('go')
+    if(nomValidation && prenomValidation && emailValidation && telephoneValidation && clubValidation){
         document.getElementById('buttonGo').href = "confirmation.html"
     }
 }
