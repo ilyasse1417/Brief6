@@ -2,6 +2,7 @@ const nom = document.getElementById('nom')
 const prenom = document.getElementById('prenom')
 const email = document.getElementById('email')
 const telephone = document.getElementById('telephone')
+const button = document.getElementById('button')
 
 const nomError = document.getElementById('nomError')
 const prenomError = document.getElementById('prenomError')
@@ -9,110 +10,123 @@ const emailError = document.getElementById('emailError')
 const telephoneError = document.getElementById('telephoneError')
 const clubsError = document.getElementById('clubsError')
 
-nom.addEventListener('input', function(e){
-    const nomRegEx = /^[a-zA-Z]{2,30}$/
+var nomValidation,prenomValidation,emailValidation,telephoneValidation,clubValidation = true
+// Nom
+nom.addEventListener('blur', function(e){
+    var nomRegEx = /^[a-zA-Z]{2,30}$/
     const nom1 = e.target.value
-    if (nomRegEx.test(nom1) === true || nom1 === ''){
+    if (nomRegEx.test(nom1) === true){
     nomError.style.display = 'none'
-    nom.style.border = '1px solid #f0f0f0'}
+    nom.style.border = '1px solid green'
+    nomValidation = false}
+    else if(nom1 === ''){
+        nomError.style.display = 'none'
+        nom.style.border = '1px solid #f0f0f0'
+    }
     else{
     nomError.style.display = 'block'
     nom.style.border = '1px solid red'}
 })
-prenom.addEventListener('input', function(e){
-    const prenomRegEx = /^[a-zA-Z]{2,30}$/
+// Prenom
+prenom.addEventListener('blur', function(e){
+    var prenomRegEx = /^[a-zA-Z]{2,30}$/
     const prenom1 = e.target.value
-    if (prenomRegEx.test(prenom1) === true || prenom1 === ''){
-    prenomError.style.display = 'none'
-    prenom.style.border = '1px solid #f0f0f0'}
+    if (prenomRegEx.test(prenom1) === true){
+        prenomError.style.display = 'none'
+        prenom.style.border = '1px solid green'
+        prenomValidation = false}
+    else if(prenom1 === ''){
+            prenomError.style.display = 'none'
+            prenom.style.border = '1px solid #f0f0f0'
+        }
     else{
-    prenomError.style.display = 'block'
-    prenom.style.border = '1px solid red'}
+        prenomError.style.display = 'block'
+        prenom.style.border = '1px solid red'}
 })
-email.addEventListener('input', function(e){
-    const emailRegEx = /([a-z])+\.([a-z])+@ofppt\.ma/
+// Email
+email.addEventListener('blur', function(e){
+    var emailRegEx = /([a-z])+\.([a-z])+@ofppt\.ma/
     const email1 = e.target.value
-    if (emailRegEx.test(email1) === true || email1 === ''){
+    if (emailRegEx.test(email1) === true){
     emailError.style.display = 'none'
-    email.style.border = '1px solid #f0f0f0'}
+    email.style.border = '1px solid green'
+    emailValidation = false}
+    else if(email1 === ''){
+        emailError.style.display = 'none'
+        email.style.border = '1px solid #f0f0f0'
+    }
     else{
     emailError.style.display = 'block'
     email.style.border = '1px solid red'}
 })
-telephone.addEventListener('input', function(e){
-    const telephoneRegEx = /^(05|06|07)([0-9]{8})$/
+// Telephone
+telephone.addEventListener('blur', function(e){
+    var telephoneRegEx = /^(05|06|07)([0-9]{8})$/
     const telephone1 = e.target.value
-    if (telephoneRegEx.test(telephone1) === true || telephone1 === ''){
+    if (telephoneRegEx.test(telephone1) === true){
+    telephoneError.style.display = 'none'
+    telephone.style.border = '1px solid green'
+    telephoneValidation = false}
+    else if (telephone1 === ''){
     telephoneError.style.display = 'none'
     telephone.style.border = '1px solid #f0f0f0'}
     else{
     telephoneError.style.display = 'block'
     telephone.style.border = '1px solid red'}
 })
-var count = 0
-function isChecked1(){
-    if(document.getElementById('checkbox1').checked){
+// Clubs
+function isChecked(){
+    let count = 0
+    for (let i = 1; i < 7; i++) {
+    let checkbox = document.getElementById('checkbox'+i)
+    if(checkbox.checked === true)
         count++
-    }else{
-        count--
     }
-    if(count>=1 & count<=3)
+    if(count>=1 & count<=3){
     clubsError.style.display = 'none'
+    clubValidation = false}
     else
     clubsError.style.display = 'block'
 }
-function isChecked2(){
-    if(document.getElementById('checkbox2').checked){
-        count++
-    }else{
-        count--
+
+
+// Boutton
+button.addEventListener('click', function(){
+    const nom1 = document.getElementById('nom').value
+    const prenom1 = document.getElementById('prenom').value
+    const email1 = document.getElementById('email').value
+    const telephone1 = document.getElementById('telephone').value
+    if(nom1 === ''){
+        nomError.style.display = 'block'
+        nom.style.border = '1px solid red'
+    }
+    if (prenom1 === ''){
+        prenomError.style.display = 'block'
+        prenom.style.border = '1px solid red'
+    }
+    if (email1 === ''){
+        emailError.style.display = 'block'
+        email.style.border = '1px solid red'
+    }
+    if (telephone1 === ''){
+        telephoneError.style.display = 'block'
+        telephone.style.border = '1px solid red'
+    }
+    let count = 0
+    for (let i = 1; i < 7; i++) {
+    let checkbox = document.getElementById('checkbox'+i)
+        if(checkbox.checked === true)
+        {
+            count++
+        }
     }
     if(count>=1 & count<=3)
     clubsError.style.display = 'none'
     else
     clubsError.style.display = 'block'
-}
-function isChecked3(){
-    if(document.getElementById('checkbox3').checked){
-        count++
-    }else{
-        count--
+})
+function validation(){
+    if(!nomValidation & !prenomValidation & !emailValidation & !telephoneValidation & !clubValidation){
+        document.getElementById('buttonGo').href = "confirmation.html"
     }
-    if(count>=1 & count<=3)
-    clubsError.style.display = 'none'
-    else
-    clubsError.style.display = 'block'
-}
-function isChecked4(){
-    if(document.getElementById('checkbox4').checked){
-        count++
-    }else{
-        count--
-    }
-    if(count>=1 & count<=3)
-    clubsError.style.display = 'none'
-    else
-    clubsError.style.display = 'block'
-}
-function isChecked5(){
-    if(document.getElementById('checkbox5').checked){
-        count++
-    }else{
-        count--
-    }
-    if(count>=1 & count<=3)
-    clubsError.style.display = 'none'
-    else
-    clubsError.style.display = 'block'
-}
-function isChecked6(){
-    if(document.getElementById('checkbox6').checked){
-        count++
-    }else{
-        count--
-    }
-    if(count>=1 & count<=3)
-    clubsError.style.display = 'none'
-    else
-    clubsError.style.display = 'block'
 }
