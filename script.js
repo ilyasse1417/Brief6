@@ -32,7 +32,7 @@ prenom.addEventListener('input', function(e){
 email.addEventListener('input', function(e){
     const emailRegEx = /([a-z])+\.([a-z])+@ofppt\.ma/
     const email1 = e.target.value
-    if (emailRegEx.test(email) === true || email1 === ''){
+    if (emailRegEx.test(email1) === true || email1 === ''){
     emailError.style.display = 'none'
     email.style.border = '1px solid #f0f0f0'}
     else{
@@ -42,7 +42,7 @@ email.addEventListener('input', function(e){
 telephone.addEventListener('input', function(e){
     const telephoneRegEx = /^(05|06|07)([0-9]{8})$/
     const telephone1 = e.target.value
-    if (telephoneRegEx.test(telephone) === true || telephone1 === ''){
+    if (telephoneRegEx.test(telephone1) === true || telephone1 === ''){
     telephoneError.style.display = 'none'
     telephone.style.border = '1px solid #f0f0f0'}
     else{
