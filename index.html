@@ -1,75 +1,79 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>Form Validation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
-    <title>Inscription 2022-2023</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="container">
-        <form action="/">
+    <div class="container">
+        <form id="form" action="/">
             <h1>Inscrivez-vous</h1>
-            <div class="input">
-                <label for="name">Nom</label>
-                <input id="name" name="name" type="text">
-                <div class="error"></div>
+            <div class="input-control">
+                <label for="nom">Nom</label>
+                <input id="nom" name="nom" type="text">
+                <div class="error">
+                    <p id="nomError">Le nom doit être entre 2 et 30 lettres.</p>
+                </div>
             </div>
-            <div class="input">
-                <label for="lastName">Prénom</label>
-                <input id="lastName" name="lastName" type="text">
-                <div class="error"></div>
+            <div class="input-control">
+                <label for="prenom">Prénom</label>
+                <input id="prenom" name="prenom" type="text">
+                <div class="error">
+                    <p id="prenomError">Le prénom doit être entre 2 et 30 lettres.</p>
+                </div>
             </div>
-            <div class="input">
+            <div class="input-control">
                 <label for="email">Email</label>
                 <input id="email" name="email" type="text">
-                <div class="error"></div>
+                <div class="error">
+                    <p id="emailError">E-mail non valide. Ex : nom.prenom@ofppt.ma</p>
+                </div>
             </div>
-            <div class="input">
-                <label for="phone">Téléphone</label>
-                <input id="phone" name="phone" type="text">
-                <div class="error"></div>
+            <div class="input-control">
+                <label for="telephone">Téléphone</label>
+                <input id="telephone" name="telephone" type="text">
+                <div class="error">
+                    <p id="telephoneError">Le numéro doit avoir 10 chiffres et commencer par 05/06/07.</p>
+                </div>
             </div>
-            <div class="input">
-                <label for="gender">Genre</label>
-                <select id="Genre">
-                    <option value="Genre"> -- Choisir -- 
-                    </option>
-                    <option value="Masculin"> Masculin 
-                    </option>                    <option value="Féminin"> Féminin
-                    </option>
+            <div class="input-control">
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre">
+                    <option value="masculin">Masculin</option>
+                    <option value="feminin">Féminin</option>
                 </select>
-                <div class="error"></div>
             </div>
-            <div class="input">
-                <label for="group">Groupe</label>
-                <select id="Groupe">
-                    <option value="Groupe"> -- Choisir -- 
-                    </option>
-                    <option value="DW101"> DW101
-                    <option value="DW102"> DW102
-                    <option value="DW103"> DW103
-                    <option value="DW104"> DW104
-                    <option value="DW105"> DW105
+            <div class="input-control">
+                <label for="groupe">Groupe</label>
+                <select name="groupe" id="groupe">
+                    <option value="dw101">DW101</option>
+                    <option value="dw102">DW102</option>
+                    <option value="dw103">DW103</option>
+                    <option value="dw104">DW104</option>
+                    <option value="dw105">DW105</option>
                 </select>
-                <div class="error"></div>
             </div>
-            <div class="input">
-                <label for="club">Clubs</label>
-                <input type="checkbox">Informatique
-                <input type="checkbox">Robotique
-                <input type="checkbox">Jeu d'échecs
-                <input type="checkbox">Musique
-                <input type="checkbox">Foot
-                <input type="checkbox">Théatre
-                <div class="error"></div>
+            <div>
+                <label for="clubs">Clubs</label>
+                    <div id="clubs">
+                    <input type="checkbox" id="checkbox1" onclick="isChecked1()">Informatique
+                    <input type="checkbox" id="checkbox2" onclick="isChecked2()">Robotique
+                    <input type="checkbox" id="checkbox3" onclick="isChecked3()">Jeu d'échecs
+                    <input type="checkbox" id="checkbox4" onclick="isChecked4()">Musique
+                    <input type="checkbox" id="checkbox5" onclick="isChecked5()">Foot
+                    <input type="checkbox" id="checkbox6" onclick="isChecked6()">Théatre
+                    </div>
+                    <div class="error">
+                        <p id="clubsError">Veuillez cocher entre 1 et 3 clubs.</p>
+                    </div>
             </div>
-            <button type="submit">S'inscrire</button>
+            <button type="submit" onclick="">S'inscrire</button>
         </form>
     </div>
 </body>
