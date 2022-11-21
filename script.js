@@ -10,16 +10,20 @@ const emailError = document.getElementById('emailError')
 const telephoneError = document.getElementById('telephoneError')
 const clubsError = document.getElementById('clubsError')
 
-var nomValidation,prenomValidation,emailValidation,telephoneValidation,clubValidation = true
+var nomValidation = true
+var prenomValidation = true
+var emailValidation = true
+var telephoneValidation = true
+var clubValidation = true
 // Nom
 nom.addEventListener('blur', function(e){
     var nomRegEx = /^[a-zA-Z]{2,30}$/
-    const nom1 = e.target.value
-    if (nomRegEx.test(nom1) === true){
+    const Nom = e.target.value
+    if (nomRegEx.test(Nom) === true){
     nomError.style.display = 'none'
     nom.style.border = '1px solid green'
     nomValidation = false}
-    else if(nom1 === ''){
+    else if(Nom === ''){
         nomError.style.display = 'none'
         nom.style.border = '1px solid #f0f0f0'
     }
@@ -126,7 +130,8 @@ button.addEventListener('click', function(){
     clubsError.style.display = 'block'
 })
 function validation(){
-    if(!nomValidation & !prenomValidation & !emailValidation & !telephoneValidation & !clubValidation){
+    if(!nomValidation && !prenomValidation && !emailValidation && !telephoneValidation && !clubValidation){
+        console.log('go')
         document.getElementById('buttonGo').href = "confirmation.html"
     }
 }
