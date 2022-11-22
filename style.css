@@ -2,10 +2,15 @@ body {
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     font-family: 'Poppins', sans-serif;
 }
-
+#logo{
+    display: block;
+    margin: 0 auto;
+    width: 25%
+}
 #form {
     width: 300px;
     margin: auto;
+    margin-bottom: 70px;
     padding: 20px;
     background-color: whitesmoke;
     border-radius: 4px;
